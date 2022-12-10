@@ -1,0 +1,81 @@
+﻿Analyzing data from UFO sightings around the world
+
+
+Roberta Pärna
+Andra Bluum
+GitHub: https://github.com/robertaparna/ufo-sightings
+
+
+* Identifying your business goals
+   * Background 
+Our project team seeks to influence the public to raise awareness about UFOs and encourage people to notice more of what goes on above our heads as well as predict when the sightings may appear in the future. We want to explore the dataset of UFO sightings around the world to see if data mining can expose patterns or conclusions that previously have not been connected to the mystifying phenomena of UFO sightings. 
+It is known that most often what are claimed to be sightings of UFOs are simply observations of objects that are very much natural or man-made. Since the rest of the story in these cases is filled in by an overactive imagination or cognitive biases, it would suggest that exploring this data is more likely to reveal something about people rather than UFOs.
+We think it would be interesting to assess the global distribution of the sightings to determine if it is a global problem or if it could maybe be impacted by culture. We would also like to see if we can find any connections of the sightings to other natural phenomena that might explain what people were really seeing such as moon phases or meteorological events.
+   * Business goals
+      * Our first goal is to increase the interest of ufology amongst people - and therefore gather more eye-witnesses for the sightings. 
+      * Our second goal is to gain deeper insight into the nature of UFO sightings and maybe uncover an explanation to them. 
+   * Business success criteria
+      * Other people from our course will have seen the results of our work.
+      * We will be able to provide at least one explanation for the UFO sightings that has sufficient evidence.
+
+
+* Assessing your situation
+   * Inventory of resources
+Our inventory of resources include: Our main dataset that contains over 80,000 UFO sightings around the world from the last 70 years: https://tinyurl.com/ufo-sightings, one secondary dataset that we will try to include contains data about moon phases since 1900:  https://tinyurl.com/moon-data, Another secondary dataset contains information on meteorites that have fallen https://tinyurl.com/meteorites-dataset. 
+   * Requirements, assumptions, and constraints
+The deadline for this project is 12th of December at 12 o’clock by then the project should be completely finished and submitted without any delay. Otherwise the project will not be graded.  
+   * Risks and contingencies
+There is a big risk that the secondary datasets we have found so far will not prove to contain sufficient supporting data to provide the evidence we need to provide explanations for the UFO sightings. In this case we will try to find other datasets, maybe even in different categories, to find the evidence we need. In case we cannot find any supporting data that provides an explanation, we will present our findings in terms of the possible explanations we have tried and failed to sufficiently prove.
+   * Terminology
+      * UFO – unidentified flying object: any unexplained moving object observed in the sky, especially one assumed by some observers to be of extraterrestrial origin.
+      * Meteorite - a piece of rock or metal that has fallen to the earth's surface from outer space as a meteor.
+      * Ufology - is the investigation of unidentified flying objects (UFOs) by people who believe that they may be of extraordinary origins.
+   * Costs and benefits
+Since the financial value and cost of this project is hard to determine and feels somewhat inappropriate, we decided to evaluate this project without any specific monetary gain or loss. So the costs of this project would be our time, labor and the electricity that our devices need. The benefits of this project are the knowledge, experience and the positive grade that we will gain. 
+* Defining your data-mining goals
+   * Data-mining goals
+      * Provide a poster displaying information about patterns, locations and possible explanations for UFO sightings.
+      * At least one believable explanation for the UFO sightings.
+   * Data-mining success criteria
+      * Finding a set of features to accompany the time and location of the UFO sighting and creating a model that, using those features, can predict how likely it is for a UFO sighting to take place with at least 65% accuracy.
+Task 3. Data understanding (2 points)
+* Gathering data
+   * Outline data requirements
+To address the data mining goals, we need the following type of data:
+      * Date and time of the UFO sighting 
+      * Location of the UFO sighting
+      * Duration of  the UFO sighting
+      * Date of lunar phase 
+      * Date of meteor landing
+      * Location of meteor landing
+   * Verify data availability
+All of the required data is available. 
+   * Define selection criteria
+We will be using datasets that we have already mentioned and included their links. So from our main dataset (UFO dataset) we will be using columns: Date_time, country, city, described_duration_of_encounter, longitude, latidude. From the meteorite landing dataset we will be using the following columns: year, GeoLocation (Only using cases whose date matches our UFO sightings date). From moon phases we’ll use columns: new moons, first quarter moons, full moons, third quarter moons  (Only using cases whose date matches our UFO sightings date). 
+* Describing data
+We have Date and time of the UFO sighting, which is Date format. It has 69586 unique instances and 80.3k overall instances. Secondly we have Location of the UFO sighting, which is the abbreviated name of the country in which the sighting happened. There are 70.7k valid cases of location.  Thirdly Duration of  the UFO sighting is measured in minutes and hours and it describes the duration of sighting/encounter. There are 80.3k valid cases of duration. Fourthly Date of lunar phase from lunar phase dataset has 6101 Date instances. They describe on what date what moon phase was. We will be needing only instances that match the date in which UFO sightings occurred. Next we have Date of meteor landing from meteor landing dataset, which has Date format and 2821 instances, which all describe tha date of meteor landing. Again we will only be needing instances that match the date in which UFO sightings occurred. Finally Location of meteor landing has coordinates which describe where the meteor landed. There are 2782 instances of that.
+* Exploring data and verifying data quality
+Date and time of the UFO sighting (Date format) - we have established that overall we have 80.3k instances of which 69586 are unique values. The earliest instance is dated 1/1/1910 and the latest 9/9/2013. The most common date is 7/4. 
+Location of the UFO sighting (abbreviated version of a country’s name) - earlier mentioned that there are 70.7k valid instances. That means we have 9670 invalid instances - meaning that 9670 instances are without a defined country. Further reading into the dataset we noticed that some of the instances have a state but don’t have a country, so perhaps we could get the country's name that way. The most common country is the US. 
+        Further exploring into UFO dataset and doing very superficial comparing with
+        Meteorite landing dataset we noticed that we also may need the longitude and
+        latitude of the sightings to be able to compare them to meteorite landings 
+        coordinates. So there are in total 80.3k valid instances of both longitude and 
+        latitude. 
+Duration of  the UFO sighting (measured in minutes and hours) - we have established that overall we have 80.3k instances. Out of all 6% of the instances is “5 minutes”. On further exploration we found that the units of time are very inconsistent. There are seconds, minutes and hours. The duration could be anywhere from a couple of seconds to a couple of hours.
+Date of lunar phase (Date format) has overall 6101 instances of Date. It ranges from 1/1/1900 to 12/16/2022. From this dataset we will be only using dates that match sightings’ dates from the UFO dataset to find out what the moon phases were when the sightings happened. 
+Date of meteor landing (Date) - we have established that overall we have 2821  instances. On further exploration we found that the  Day and Month is not specified. This is a problem we attempt to solve by further researching the dates and if that does not work out we will be looking at the amount of meteorites near the location of the sighting in the specified year. (Specified year meaning matching the sightings year). It ranges from 12/28/0860 to 01/01/2013
+Location of meteor landing (Coordinates) has overall 2782 instances. We will be comparing these with UFOs dataset longitude and latitude. The most common coordinates are (-84.000000, 168.000000). 14% of all coordinates are 0 and we will not be using those. 
+
+
+Task 4. Planning your project (0.5 points)
+
+
+Make a detailed plan of your project with a list of tasks.
+1. Doing additional research on the topic. We will be reading articles on the internet. (Roberta-1h, Andra-1h)
+2. Doing additional research on the methods we need to use to create a working model. We will be doing this by reviewing course material and also trying to find information on the internet. (Roberta-5h)
+3. Visualizing the UFO sightings dataset, finding patterns.(Roberta-2h, Andra-2h)
+4. Combining the data from our main dataset and secondary datasets into new datasets to add different new features to help predict the likelihood of a UFO sighting occurring by. Preparing those datasets for training a model on them. (Roberta-12h, Andra-11h)
+5. Training different models on the different datasets. We will try to use the same type of model for predicting on every dataset for consistency. We will find the one we believe performs best by comparing their accuracies.(Roberta-10h, Andra-10h)
+6. Comparing the different models to determine which features best help predict the occurrence of a UFO. (Andra-1h)
+7. Creating a poster for the project. (Andra-5h)
