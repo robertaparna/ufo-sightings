@@ -1,0 +1,17 @@
+we started by making a model to predict ufo shape from the location, time and duration of the encounter. we ended up with a model that performs slightly better than random guessing.
+metrics:
+    accuracy score- 0.12
+    matthews correlation coefficient - 0.048
+    cohen kappa score - 0.046
+    
+then we tried to create a model to predict the duration of the encounters based on the time, location and shape of the ufo. but this was extremely unsuccessful with the resulting model having a mean squared error of 2 billion and r2 score of -0.002
+
+then we tried to find a connection between the sightings and the lunar calendar. this is how the sightings were distributed between the main moon phases
+
+phase
+first_quarter_moon     2334
+full_moons             2307
+new_moon               2549
+third_quarter_moons    2364
+
+we tried to find a connection between the meteorite landings and ufo sightings and we found that only 2.18% of all the sightings took place in the same year as a meteorite landed close enough to the location of the sighting to be visible
